@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TropicalBay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1>TropicalBay</h1>
+            <input type="text" name="search" id="search">
+            <div class="popular_latest">
+                <label for="popular">
+                    Popular:
+                    <input type="radio" name="popular_latest" id="popular" value="popular" checked>
+                </label>
+                <label for="latest">
+                    Latest:
+                    <input type="radio" name="popular_latest" id="latest" value="latest">
+                </label>
+            </div>
+            <input type="submit" value="Search">
+        </form>
+        <div id="resultContainer">
+        </div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+        .pagination {
+            color: white;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-top: 40px;
+        }
+
+        .pagination div {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .pagButton {
+            transition: 400ms;
+        }
+
+        .pagButton:hover {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="pagination" id="pagination">
+
+
+
+    </div>
+
+
+    <script>
+        let currPage = 1
+        const totalPages = 100
+            // Pgination
+            const paginationWrapper = document.getElementById("pagination")
+            paginationWrapper.innerHTML = ""
+
+            // Previous button
+            const previous = document.createElement("div")
+            previous.className = "pagButton"
+            previous.setAttribute("id", "previous")
+            previous.innerHTML = "&laquo;"
+            paginationWrapper.appendChild(previous)
+            previous.addEventListener("click", e => {
+                if (currPage == 1) return
+                currPage--
+                picRequest(currPage)
+            })
+
+            // Pages
+            for (let i = 1; i <= totalPages;) {
+                console.log(currPage)
+                if (i == 4) {
+                    const triple = document.createElement("div")
+                    triple.innerText = "..."
+                    paginationWrapper.appendChild(triple)
+                    const page = document.createElement("div")
+                    page.className = "pagButton"
+                    page.innerText = `${totalPages}`
+                    paginationWrapper.appendChild(page)
+                    break
+                }
+                const page = document.createElement("div")
+                page.className = "pagButton"
+                page.innerText = `${i}`
+                paginationWrapper.appendChild(page)
+                i++
+            }
+
+            // next button
+            const next = document.createElement("div")
+            console.log(next)
+            next.className = "pagButton"
+            next.setAttribute("id", "next")
+            next.innerHTML = "&raquo;"
+            paginationWrapper.appendChild(next)
+            next.addEventListener("click", e => {
+                if (currPage == totalPages) return
+                currPage++
+                picRequest(currPage)
+            })
+    </script>
+</body>
+
+</html>
